@@ -1,0 +1,8 @@
+The QuickSilver Web Loadbalancer management software can be used to manage a
+cluster of home grown load balancers based on varnish and nginx(ssl).
+
+It requires:
+
+* ruby on the management node
+* daemontools, varnish, and nginx on the management node
+* ssh keys setup to allow administration + proper sudo rights for the management user
