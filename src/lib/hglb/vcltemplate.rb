@@ -21,13 +21,7 @@ module HGLB
 backend #{be} {
   .host = "#{@config.backend_ip(be)}";
   .port = "#{@config.backend_port(be)}";
-  .probe = {
-    .url = "/hbt/ping?service=acv";
-    .timeout   = 1s;
-    .interval  = 5s;
-    .window    = 8;
-    .threshold = 6;
-  }
+  #{@config.backend_options(be).gsub("\n", "\n  ")}
 }
 EOF
       end.join("")

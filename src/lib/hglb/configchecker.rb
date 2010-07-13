@@ -86,6 +86,7 @@ module HGLB
             begin
               errors += check_backend_host(backendname, backendinfo)
               errors += check_backend_port(backendname, backendinfo)
+              errors += check_backend_options(backendname, backendinfo)
             rescue StandardError => e
               errors << "Backend #{backendname} error: #{e}"
             end
@@ -120,6 +121,11 @@ module HGLB
         # no formal checking here, so []
         errors
       end
+    end
+
+    def check_backend_options(backendname, backinfo)
+      # options are not required or validated (could cause varnish issue)
+      []
     end
 
     #################################################################

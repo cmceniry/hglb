@@ -35,6 +35,10 @@ module HGLB
       @config[:backends][backendname][:port]
     end
 
+    def backend_options(backendname)
+      @config[:backends][backendname][:options] || ""
+    end
+
     def backend_netstatform(backendname)
       "#{backend_ip(backendname)}.#{backend_port(backendname)}"
     end
