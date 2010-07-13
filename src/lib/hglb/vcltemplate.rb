@@ -55,8 +55,9 @@ EOF
       indent = " "*prettyspacing
       @config.director_backends(director).sort.map do |be|
         <<EOF.strip
-if (req.url ~ "server=#{@config.backend_host(be)}") {
+if (req.url ~ "\\?.*server=#{@config.backend_host(be)}.*") {
   set req.backend = #{be};
+  return (pass);
 }
 EOF
       end.join("\n").gsub(/\n/, "\n#{indent}")
