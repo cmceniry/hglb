@@ -2,7 +2,7 @@
 
 Summary: QuickSilver Load Balancer (hglb) management utilities
 Name: hglb
-Version: 0.2
+Version: 0.3
 Release: 0
 License: Simplified BSD License
 Vendor: Corgalabs
@@ -62,6 +62,15 @@ rm -rf ${RPM_BUILD_ROOT}
 /usr/lib/ruby/site_ruby/1.8/hglb
 
 %changelog
+* Tue Jul 13 2010 Chris McEniry <cmceniry@corgalabs.com> - 0.3-0
+- additional backend options can be specified in config (probe, etc)
+- force pass on directed server template item
+- better (more exact) matching on directed server template item
+- basic check for clutername in lb-stats
+
+* Tue Jul 13 2010 Chris McEniry <cmceniry@corgalabs.com> - 0.2-0
+- tool prefix rename lb -> hglb
+
 * Mon Jul 12 2010 Chris McEniry <cmceniry@corgalabs.com> - 0.1-0
 - Initial release/specfile
 
