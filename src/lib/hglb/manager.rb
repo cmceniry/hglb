@@ -90,6 +90,10 @@ module HGLB
       ret
     end
 
+    def cluster?(clustername)
+      @config.clusters.include?(clustername)
+    end
+
     def backend?(backendname)
       @config.backends.include?(backendname)
     end

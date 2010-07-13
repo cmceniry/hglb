@@ -60,7 +60,17 @@ def lbstats
     exit -1
   end
 
+  if ARGV.empty?
+    puts "Must specify which cluster to check"
+    exit -1
+  end
+
   manager = HGLB::Manager.new(config)
+  if not manager.cluster?(ARGV[0])
+    puts "Invalid cluster name"
+    exit -1
+  end
+
   counts = manager.check_backend_connection_counts( ARGV[0],
                                                     :loadbalancers => loadbalancers,
                                                     :directors     => directors,
