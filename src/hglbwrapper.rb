@@ -308,15 +308,15 @@ def lbsync
 end
 
 case File.basename($0)
-when "lb-stats"
+when "hglb-stats"
   lbstats
-when "lb-status"
+when "hglb-status"
   lbstatus
-when "lb-suspend"
+when "hglb-suspend"
   lbsuspend
-when "lb-resume"
+when "hglb-resume"
   lbresume
-when "lb-sync"
+when "hglb-sync"
   lbsync
 else
   puts "Unknown command"

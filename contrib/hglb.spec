@@ -2,7 +2,7 @@
 
 Summary: QuickSilver Load Balancer (hglb) management utilities
 Name: hglb
-Version: 0.1
+Version: 0.2
 Release: 0
 License: Simplified BSD License
 Vendor: Corgalabs
@@ -30,12 +30,12 @@ for managing a home grown load balancer based on varnish and nginx.
 rm -rf ${RPM_BUILD_ROOT}
 
 mkdir -p ${RPM_BUILD_ROOT}/usr/sbin/
-install -m 0755 src/lbwrapper.rb ${RPM_BUILD_ROOT}/usr/sbin/lbwrapper.rb
-install src/lb-resume ${RPM_BUILD_ROOT}/usr/sbin/lb-resume
-install src/lb-stats ${RPM_BUILD_ROOT}/usr/sbin/lb-stats
-install src/lb-status ${RPM_BUILD_ROOT}/usr/sbin/lb-status
-install src/lb-suspend ${RPM_BUILD_ROOT}/usr/sbin/lb-suspend
-install src/lb-sync ${RPM_BUILD_ROOT}/usr/sbin/lb-sync
+install -m 0755 src/hglbwrapper.rb ${RPM_BUILD_ROOT}/usr/sbin/hglbwrapper.rb
+ln -s hglbwrapper.rb ${RPM_BUILD_ROOT}/usr/sbin/hglb-resume
+ln -s hglbwrapper.rb ${RPM_BUILD_ROOT}/usr/sbin/hglb-stats
+ln -s hglbwrapper.rb ${RPM_BUILD_ROOT}/usr/sbin/hglb-status
+ln -s hglbwrapper.rb ${RPM_BUILD_ROOT}/usr/sbin/hglb-suspend
+ln -s hglbwrapper.rb ${RPM_BUILD_ROOT}/usr/sbin/hglb-sync
 
 mkdir -p ${RPM_BUILD_ROOT}/usr/lib/ruby/site_ruby/1.8/
 install -m 0644 src/lib/hglb.rb ${RPM_BUILD_ROOT}/usr/lib/ruby/site_ruby/1.8/hglb.rb
@@ -52,12 +52,12 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(-,root,root)
-/usr/sbin/lbwrapper.rb
-/usr/sbin/lb-resume
-/usr/sbin/lb-stats
-/usr/sbin/lb-status
-/usr/sbin/lb-suspend
-/usr/sbin/lb-sync
+/usr/sbin/hglbwrapper.rb
+/usr/sbin/hglb-resume
+/usr/sbin/hglb-stats
+/usr/sbin/hglb-status
+/usr/sbin/hglb-suspend
+/usr/sbin/hglb-sync
 /usr/lib/ruby/site_ruby/1.8/hglb.rb
 /usr/lib/ruby/site_ruby/1.8/hglb
 
